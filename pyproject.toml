@@ -1,5 +1,5 @@
 [project]
-name = "epg-golden-data"
+name = "omrf-mlab-golden-data"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.scripts]
-epg-golden-data = "epg_golden_data:main"
+omrf-mlab-golden-data = "omrf_mlab_golden_data:main"
 
 [dependency-groups]
 dev = ["ruff", "pyright"]
@@ -24,6 +24,7 @@ build-backend = "uv_build"
 
 [tool.ruff]
 line-length = 89
+exclude = ["vendor"]
 
 [tool.ruff.lint]
 select = [
@@ -50,3 +51,4 @@ force-single-line = true
 [tool.pyright]
 pythonVersion = "3.12"
 typeCheckingMode = "standard"
+exclude = ["vendor", ".venv"]
