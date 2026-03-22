@@ -1,3 +1,4 @@
 [submodule "vendor/openmrf-core-matlab"]
 	path = vendor/openmrf-core-matlab
 	url = https://github.com/OpenMRF/openmrf-core-matlab.git
+	shallow = true
