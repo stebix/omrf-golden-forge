@@ -7,7 +7,10 @@ authors = [
     { name = "stebix", email = "jannik.stebani@physik.uni-wuerzburg.de" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "structlog>=24.1",
+    "rich>=13.0",
+]
 
 [project.scripts]
 epg-golden-data = "epg_golden_data:main"

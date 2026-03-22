@@ -9,5 +9,5 @@ wheels/
 # Virtual environments
 .venv
 
-# Generated MATLAB operator files
-matlab/generated/
+# Generated MATLAB operator files (manifest.json is committed)
+matlab/generated/*.m

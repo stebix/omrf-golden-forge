@@ -1,0 +1,47 @@
+{
+  "extraction_timestamp": "2026-03-22T16:55:50.662496+00:00",
+  "source": {
+    "relative_path": "vendor/openmrf-core-matlab/include_pulseq_toolbox/src_mrf/src_simulations/MRF_sim_EPG.m",
+    "sha256": "8a650a39348a56d73e29f667393423a3aaf0760c762b2f6f79ef50c393a813c0"
+  },
+  "git": {
+    "repo_commit": "763d081ad85b2178608c1ca682ad404f2f21c627",
+    "repo_dirty": true,
+    "submodule_commit": "df399ea36b144125a9740f448db63b57b2d81651"
+  },
+  "outputs": [
+    {
+      "name": "sim_free_relax",
+      "file": "sim_free_relax.m",
+      "sha256": "3ca9f2bd44c9069d40fd5429d7e9ad8852bfe617058da2aacb765691c79db60e"
+    },
+    {
+      "name": "sim_dephasing",
+      "file": "sim_dephasing.m",
+      "sha256": "0011f17082fe67800e13fb62f6aa44f51d5cfe5d711a4d7904a4c789d0e49756"
+    },
+    {
+      "name": "sim_rf",
+      "file": "sim_rf.m",
+      "sha256": "0a1ee281f3d2bb07605e4d958394e3bd92306473fe7ddfe4c3776175b9396498"
+    },
+    {
+      "name": "sim_spoiler",
+      "file": "sim_spoiler.m",
+      "sha256": "fc1ee083cb9b519407f56c2ee489085c3375aa97884ffd2d5bedd3766a2bb14e"
+    },
+    {
+      "name": "sim_diffusion",
+      "file": "sim_diffusion.m",
+      "sha256": "2e3e15cc057028522f9a823efe547f4c7dca070446ea6e36bdd7a1401a80bf9a"
+    },
+    {
+      "name": "sim_sl",
+      "file": "sim_sl.m",
+      "sha256": "4c896cbc09e5afc292603a1f0ca60845e2640a217cf404a396ae7cbb1d5518e5"
+    }
+  ],
+  "environment": {
+    "python_version": "3.12.12 (main, Jan 27 2026, 23:58:14) [Clang 21.1.4 ]"
+  }
+}
