@@ -1,0 +1,49 @@
+[project]
+name = "epg-golden-data"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "stebix", email = "jannik.stebani@physik.uni-wuerzburg.de" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+epg-golden-data = "epg_golden_data:main"
+
+[dependency-groups]
+dev = ["ruff", "pyright"]
+
+[build-system]
+requires = ["uv_build>=0.10.6,<0.11.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 89
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "UP",
+    "B",
+    "SIM",
+    "Q",
+    "RUF",
+]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single"
+
+[tool.ruff.lint.isort]
+force-single-line = true
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "standard"
