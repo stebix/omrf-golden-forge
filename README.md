@@ -1,4 +1,4 @@
-# omrf-mlab-golden-data
+# omrf-mlab-golden-forge
 
 Produce reproducible golden data for equivalence testing of extended phase graph (EPG) implementations.
 
@@ -12,7 +12,7 @@ git submodule update --init
 ## Extract MATLAB operators
 
 ```bash
-uv run omrf-mlab-golden-data
+uv run omrf-mlab-golden-forge
 ```
 
 Writes standalone `.m` files to `matlab/generated/`.

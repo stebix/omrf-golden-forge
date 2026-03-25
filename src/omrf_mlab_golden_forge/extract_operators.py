@@ -207,7 +207,7 @@ def write_manifest(manifest: dict, output_dir: Path) -> Path:
 
 def main(project_root: Path | None = None) -> None:
     """Extract EPG operators and write to matlab/generated/."""
-    from omrf_mlab_golden_data import setup_logging
+    from omrf_mlab_golden_forge import setup_logging
 
     setup_logging()
 

@@ -1,5 +1,5 @@
 [project]
-name = "omrf-mlab-golden-data"
+name = "omrf-mlab-golden-forge"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.scripts]
-omrf-mlab-golden-data = "omrf_mlab_golden_data:main"
+omrf-mlab-golden-forge = "omrf_mlab_golden_forge:main"
 
 [dependency-groups]
 dev = ["ruff", "pyright"]

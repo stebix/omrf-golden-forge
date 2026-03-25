@@ -25,14 +25,14 @@ uv run pyright               # Type checking
 
 ### Run
 ```bash
-uv run omrf-mlab-golden-data  # Run the CLI entry point
+uv run omrf-mlab-golden-forge  # Run the CLI entry point
 ```
 
 Pre-commit hooks run ruff (lint + format) and pyright automatically on commit.
 
 ## Architecture
 
-- **`src/omrf_mlab_golden_data/`** — Python package (src layout)
+- **`src/omrf_mlab_golden_forge/`** — Python package (src layout)
   - `extract_operators.py` — Parses `vendor/openmrf-core-matlab/.../MRF_sim_EPG.m`, extracts local MATLAB functions, writes each as a standalone file to `matlab/generated/`
 - **`vendor/openmrf-core-matlab/`** — Git submodule (shallow clone) of the OpenMRF MATLAB library; source of truth for EPG operators
 - **`matlab/generated/`** — Auto-generated standalone MATLAB operator files (gitignored; regenerate, don't edit)

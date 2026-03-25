@@ -33,7 +33,7 @@ wheels = [
 ]
 
 [[package]]
-name = "omrf-mlab-golden-data"
+name = "omrf-mlab-golden-forge"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
