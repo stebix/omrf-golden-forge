@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.scripts]
-omrf-mlab-golden-forge = "omrf_mlab_golden_forge:main"
+omrf-mlab-golden-forge = "omrf_mlab_golden_forge.extract_operators:main"
 
 [dependency-groups]
 dev = ["ruff", "pyright"]
