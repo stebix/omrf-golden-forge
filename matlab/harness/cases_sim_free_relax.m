@@ -1,18 +1,18 @@
-function cases = cases_sim_free_relax(Q_lib, N_q_list)
+function cases = cases_sim_free_relax(Q_lib, nstates_list)
 % CASES_SIM_FREE_RELAX  Test case templates for the sim_free_relax operator.
 %
-%   cases = cases_sim_free_relax(Q_lib, N_q_list)
+%   cases = cases_sim_free_relax(Q_lib, nstates_list)
 %
 %   Returns a struct array of concrete test cases produced by expanding the
-%   template definitions below against the available N_q sizes.  Each case
-%   has fields: tag, Q_in, T1, T2, dt.
+%   template definitions below against the available nstates sizes.  Each
+%   case has fields: tag, Q_in, T1, T2, dt.
 %
 %   Template design
 %   ---------------
 %   The 'all' policy is used for the canonical tissue-parameter set (typical
 %   brain white matter, equilibrium state) because free relaxation should be
 %   size-independent and this is the primary case where that invariance is
-%   worth verifying across every available N_q.
+%   worth verifying across every available nstates.
 %
 %   All other templates use 'representative' (parameter-regime coverage) or
 %   'smallest' (edge cases where a minimal state is sufficient).  T1/T2
@@ -25,7 +25,7 @@ templates = struct([]);
 t = 0;
 
 % --- Typical brain white matter, equilibrium state — size sweep ---
-% Canonical parameter set tested across all available N_q.  Verifies that
+% Canonical parameter set tested across all available nstates.  Verifies that
 % the relaxation operator is truly state-space-size-independent.
 t = t+1;
 templates(t).type     = 'equilibrium';
@@ -80,7 +80,7 @@ templates(t).dt       = 0.010;
 
 % --- Edge: very short T2 (near-complete transverse decay) ---
 % T2 << dt: almost all transverse magnetisation decays within one step.
-% Uses the smallest available state; the extreme T2 is the point, not N_q.
+% Uses the smallest available state; the extreme T2 is the point, not nstates.
 t = t+1;
 templates(t).type     = 'post_45rf';
 templates(t).policy   = 'smallest';
@@ -111,6 +111,6 @@ templates(t).T1       = 1.0;
 templates(t).T2       = 0.080;
 templates(t).dt       = 0.0;
 
-cases = expand_case_templates(templates, Q_lib, N_q_list);
+cases = expand_case_templates(templates, Q_lib, nstates_list);
 
 end

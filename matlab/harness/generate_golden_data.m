@@ -1,9 +1,9 @@
-function generate_golden_data(N_q_list)
+function generate_golden_data(nstates_list)
 % GENERATE_GOLDEN_DATA  Generate golden data for all registered EPG operators.
 %   generate_golden_data()          — uses config.json, then default [4,8,16]
-%   generate_golden_data([4,8,16])  — uses the supplied N_q sizes
+%   generate_golden_data([4,8,16])  — uses the supplied nstates sizes
 %
-%   Resolution order for N_q sizes:
+%   Resolution order for nstates sizes:
 %     1. Explicit argument
 %     2. config.json in the harness directory
 %     3. Built-in default [4, 8, 16]
@@ -14,26 +14,26 @@ matlab_dir    = fileparts(harness_dir);
 generated_dir = fullfile(matlab_dir, 'generated');
 output_dir    = fullfile(matlab_dir, 'golden_data');
 
-% Resolve N_q_list
+% Resolve nstates_list
 if nargin < 1
     cfg_file = fullfile(harness_dir, 'config.json');
     if isfile(cfg_file)
         cfg = jsondecode(fileread(cfg_file));
-        N_q_list = cfg.N_q(:)';
-        fprintf('N_q from config.json: [%s]\n\n', num2str(N_q_list));
+        nstates_list = cfg.nstates(:)';
+        fprintf('nstates from config.json: [%s]\n\n', num2str(nstates_list));
     else
-        N_q_list = [4, 8, 16];
-        fprintf('N_q default: [%s]\n\n', num2str(N_q_list));
+        nstates_list = [4, 8, 16];
+        fprintf('nstates default: [%s]\n\n', num2str(nstates_list));
     end
 else
-    fprintf('N_q from argument: [%s]\n\n', num2str(N_q_list));
+    fprintf('nstates from argument: [%s]\n\n', num2str(nstates_list));
 end
 
 % Add generated operators to path so they are callable
 addpath(generated_dir);
 
 % Build deterministic Q state library
-Q_lib = make_q_states(N_q_list);
+Q_lib = make_q_states(nstates_list);
 
 % Operator registry: {name, case_generator_function_handle}
 % To add a new operator, append a row here and add a case to run_operator.
@@ -50,9 +50,9 @@ for i = 1:size(operators, 1)
 
     fprintf('--- %s ---\n', op_name);
 
-    % Generate test case inputs; N_q_list is forwarded so each generator
+    % Generate test case inputs; nstates_list is forwarded so each generator
     % can expand its templates against the actual available sizes
-    cases = case_gen_fn(Q_lib, N_q_list);
+    cases = case_gen_fn(Q_lib, nstates_list);
 
     % Run operator on each case, store output
     for k = 1:numel(cases)

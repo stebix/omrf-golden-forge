@@ -1,18 +1,18 @@
-function cases = cases_sim_rf(Q_lib, N_q_list)
+function cases = cases_sim_rf(Q_lib, nstates_list)
 % CASES_SIM_RF  Test case templates for the sim_rf operator.
 %
-%   cases = cases_sim_rf(Q_lib, N_q_list)
+%   cases = cases_sim_rf(Q_lib, nstates_list)
 %
 %   Returns a struct array of concrete test cases produced by expanding the
-%   template definitions below against the available N_q sizes.  Each case
-%   has fields: tag, Q_in, alpha, phi.
+%   template definitions below against the available nstates sizes.  Each
+%   case has fields: tag, Q_in, alpha, phi.
 %
 %   Template design
 %   ---------------
 %   Semantic tests (policy 'representative') verify that sim_rf computes the
 %   correct rotation matrix for a particular (alpha, phi) combination.  The
 %   state-space size is incidental for these checks, so a single
-%   representative N_q is used.
+%   representative nstates is used.
 %
 %   The 'smallest' policy is reserved for edge-case inputs (zero flip,
 %   360-deg) where a minimal state is sufficient and keeps the golden record
@@ -111,6 +111,6 @@ templates(t).tag_stem = 'edge_360deg';
 templates(t).alpha    = 2*pi;
 templates(t).phi      = 0;
 
-cases = expand_case_templates(templates, Q_lib, N_q_list);
+cases = expand_case_templates(templates, Q_lib, nstates_list);
 
 end

@@ -3,7 +3,7 @@
 % Usage (from project root):
 %   run('matlab/harness/run_harness.m')
 %
-% With custom N_q sizes, call generate_golden_data directly:
+% With custom nstates sizes, call generate_golden_data directly:
 %   addpath('matlab/harness');
 %   generate_golden_data([4, 8, 16, 32])
 

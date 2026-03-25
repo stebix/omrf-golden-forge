@@ -1,18 +1,18 @@
-function cases = cases_sim_spoiler(Q_lib, N_q_list)
+function cases = cases_sim_spoiler(Q_lib, nstates_list)
 % CASES_SIM_SPOILER  Test case templates for the sim_spoiler operator.
 %
-%   cases = cases_sim_spoiler(Q_lib, N_q_list)
+%   cases = cases_sim_spoiler(Q_lib, nstates_list)
 %
 %   Returns a struct array of concrete test cases produced by expanding the
-%   template definitions below against the available N_q sizes.  Each case
-%   has fields: tag, Q_in, nTwists.
+%   template definitions below against the available nstates sizes.  Each
+%   case has fields: tag, Q_in, nTwists.
 %
 %   Template design
 %   ---------------
 %   sim_spoiler shifts coherence orders by nTwists positions; states that
-%   shift beyond the allocated N_q columns are discarded.  Consequently:
+%   shift beyond the allocated nstates columns are discarded.  Consequently:
 %
-%   - Single-twist tests (policy 'representative') are largely N_q-
+%   - Single-twist tests (policy 'representative') are largely nstates-
 %     agnostic: only a narrow boundary region is affected.
 %
 %   - The multi-twist test (nTwists = 3, policy 'largest') is placed on the
@@ -64,7 +64,7 @@ templates(t).policy   = 'representative';
 templates(t).tag_stem = 'random_positive_1';
 templates(t).nTwists  = 1;
 
-% --- Random symmetric state, multi-twist, largest available N_q ---
+% --- Random symmetric state, multi-twist, largest available nstates ---
 % nTwists = 3 shifts three coherence orders at once.  The largest available
 % state is used so that a meaningful number of orders survive the shift and
 % the boundary-truncation behaviour can be verified against states that are
@@ -102,6 +102,6 @@ templates(t).policy   = 'smallest';
 templates(t).tag_stem = 'edge_zero_twist';
 templates(t).nTwists  = 0;
 
-cases = expand_case_templates(templates, Q_lib, N_q_list);
+cases = expand_case_templates(templates, Q_lib, nstates_list);
 
 end

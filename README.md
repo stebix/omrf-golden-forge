@@ -27,7 +27,7 @@ run('matlab/harness/run_harness.m')
 
 Outputs one JSON file per operator to `matlab/golden_data/`. Each file contains tagged input/output pairs (Q state matrices + parameters) with provenance metadata.
 
-### Configuring N_q sizes
+### Configuring nstates sizes
 
 The number of q-state columns in test matrices is resolved in order:
 

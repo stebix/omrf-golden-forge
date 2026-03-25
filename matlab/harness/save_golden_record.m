@@ -15,7 +15,7 @@ record.metadata = metadata;
 test_cases = cell(1, numel(cases));
 for k = 1:numel(cases)
     tc.tag  = cases(k).tag;
-    tc.N_q  = size(cases(k).Q_in, 2);
+    tc.nstates = size(cases(k).Q_in, 2);
     tc.Q_in  = encode_complex_matrix(cases(k).Q_in);
     tc.Q_out = encode_complex_matrix(cases(k).Q_out);
 
