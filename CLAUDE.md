@@ -42,3 +42,5 @@ Pre-commit hooks run ruff (lint + format) and pyright automatically on commit.
 - Python >=3.12, managed with **uv**
 - Ruff: line length 89, single quotes, force single-line imports
 - Pyright: standard type checking mode
+- numpy style docstrings for Python functions
+- MATLAB: standard MATLAB style, with function signatures and comments
