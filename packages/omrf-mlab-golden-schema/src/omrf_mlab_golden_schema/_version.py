@@ -1,0 +1,2 @@
+SCHEMA_VERSION: str = '1.0'
+SCHEMA_VERSION_MAJOR: str = '1'

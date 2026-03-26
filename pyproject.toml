@@ -1,26 +1,14 @@
 [project]
-name = "omrf-mlab-golden-forge"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-authors = [
-    { name = "stebix", email = "jannik.stebani@physik.uni-wuerzburg.de" }
-]
+name = "omrf-mlab-golden-workspace"
+version = "0.0.0"
+description = "uv workspace root for omrf-mlab-golden packages"
 requires-python = ">=3.12"
-dependencies = [
-    "structlog>=24.1",
-    "rich>=13.0",
-]
-
-[project.scripts]
-omrf-mlab-golden-forge = "omrf_mlab_golden_forge.extract_operators:main"
 
 [dependency-groups]
-dev = ["ruff", "pyright"]
+dev = ["ruff", "pyright", "pytest"]
 
-[build-system]
-requires = ["uv_build>=0.10.6,<0.11.0"]
-build-backend = "uv_build"
+[tool.uv.workspace]
+members = ["packages/*"]
 
 [tool.ruff]
 line-length = 89
@@ -51,4 +39,9 @@ force-single-line = true
 [tool.pyright]
 pythonVersion = "3.12"
 typeCheckingMode = "standard"
+venvPath = "."
+venv = ".venv"
 exclude = ["vendor", ".venv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

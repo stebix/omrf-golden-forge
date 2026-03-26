@@ -1,0 +1,23 @@
+[project]
+name = "omrf-mlab-golden-forge"
+version = "0.1.0"
+description = "EPG operator extraction and golden data validation CLI"
+authors = [
+    { name = "stebix", email = "jannik.stebani@physik.uni-wuerzburg.de" },
+]
+requires-python = ">=3.12"
+dependencies = [
+    "omrf-mlab-golden-schema",
+    "structlog>=24.1",
+    "rich>=13.0",
+]
+
+[project.scripts]
+omrf-mlab-golden-forge = "omrf_mlab_golden_forge.cli:main"
+
+[tool.uv.sources]
+omrf-mlab-golden-schema = { workspace = true }
+
+[build-system]
+requires = ["uv_build>=0.10.6,<0.11.0"]
+build-backend = "uv_build"

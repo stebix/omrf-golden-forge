@@ -10,4 +10,4 @@ wheels/
 .venv
 
 # Generated MATLAB operator files (manifest.json is committed)
-matlab/generated/*.m
+matlab_code/generated/*.m

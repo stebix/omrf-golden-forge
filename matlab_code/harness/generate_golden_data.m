@@ -12,7 +12,15 @@ function generate_golden_data(nstates_list)
 harness_dir   = fileparts(mfilename('fullpath'));
 matlab_dir    = fileparts(harness_dir);
 generated_dir = fullfile(matlab_dir, 'generated');
-output_dir    = fullfile(matlab_dir, 'golden_data');
+
+% Resolve repo root via git (robust to directory depth changes)
+[status, repo_root] = system('git rev-parse --show-toplevel');
+if status ~= 0
+    error('generate_golden_data:noGitRoot', ...
+          'Could not determine repository root via git');
+end
+repo_root  = strtrim(repo_root);
+output_dir = fullfile(repo_root, 'golden_data');
 
 % Resolve nstates_list
 if nargin < 1

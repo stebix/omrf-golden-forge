@@ -1,0 +1,193 @@
+{
+  "$defs": {
+    "ComplexEncoding": {
+      "description": "Encoding of a complex scalar: {\"real\": float, \"imag\": float}.\n\nProduced by save_golden_record.m for complex-valued operator params.",
+      "properties": {
+        "real": {
+          "title": "Real",
+          "type": "number"
+        },
+        "imag": {
+          "title": "Imag",
+          "type": "number"
+        }
+      },
+      "required": [
+        "real",
+        "imag"
+      ],
+      "title": "ComplexEncoding",
+      "type": "object"
+    },
+    "ComplexMatrixEncoding": {
+      "description": "Encoding from encode_complex_matrix.m: {shape, real, imag}.\n\nshape: [rows, cols]; real/imag: nested lists of float.",
+      "properties": {
+        "shape": {
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "title": "Shape",
+          "type": "array"
+        },
+        "real": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Real",
+          "type": "array"
+        },
+        "imag": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Imag",
+          "type": "array"
+        }
+      },
+      "required": [
+        "shape",
+        "real",
+        "imag"
+      ],
+      "title": "ComplexMatrixEncoding",
+      "type": "object"
+    },
+    "GoldenMetadata": {
+      "description": "Provenance metadata emitted by collect_metadata.m.",
+      "properties": {
+        "schema_version": {
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "git_commit": {
+          "title": "Git Commit",
+          "type": "string"
+        },
+        "matlab_version": {
+          "title": "Matlab Version",
+          "type": "string"
+        },
+        "generated_at": {
+          "title": "Generated At",
+          "type": "string"
+        },
+        "operator_file_sha256": {
+          "title": "Operator File Sha256",
+          "type": "string"
+        },
+        "source_manifest_sha256": {
+          "title": "Source Manifest Sha256",
+          "type": "string"
+        },
+        "harness_version": {
+          "title": "Harness Version",
+          "type": "string"
+        },
+        "rng_seed": {
+          "title": "Rng Seed",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "schema_version",
+        "git_commit",
+        "matlab_version",
+        "generated_at",
+        "operator_file_sha256",
+        "source_manifest_sha256",
+        "harness_version",
+        "rng_seed"
+      ],
+      "title": "GoldenMetadata",
+      "type": "object"
+    },
+    "GoldenTestCase": {
+      "description": "A single EPG operator test case with input/output matrices.",
+      "properties": {
+        "tag": {
+          "title": "Tag",
+          "type": "string"
+        },
+        "nstates": {
+          "title": "Nstates",
+          "type": "integer"
+        },
+        "Q_in": {
+          "$ref": "#/$defs/ComplexMatrixEncoding"
+        },
+        "Q_out": {
+          "$ref": "#/$defs/ComplexMatrixEncoding"
+        },
+        "params": {
+          "additionalProperties": {
+            "$ref": "#/$defs/ParamValue"
+          },
+          "title": "Params",
+          "type": "object"
+        }
+      },
+      "required": [
+        "tag",
+        "nstates",
+        "Q_in",
+        "Q_out",
+        "params"
+      ],
+      "title": "GoldenTestCase",
+      "type": "object"
+    },
+    "ParamValue": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "#/$defs/ComplexEncoding"
+        }
+      ]
+    }
+  },
+  "description": "Top-level golden data record for one EPG operator.",
+  "properties": {
+    "operator": {
+      "title": "Operator",
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "#/$defs/GoldenMetadata"
+    },
+    "test_cases": {
+      "items": {
+        "$ref": "#/$defs/GoldenTestCase"
+      },
+      "title": "Test Cases",
+      "type": "array"
+    }
+  },
+  "required": [
+    "operator",
+    "metadata",
+    "test_cases"
+  ],
+  "title": "GoldenRecord",
+  "type": "object"
+}

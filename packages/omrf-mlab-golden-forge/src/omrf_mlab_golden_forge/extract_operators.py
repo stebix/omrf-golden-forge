@@ -28,7 +28,7 @@ VENDOR_SOURCE = Path(
     '/src_mrf/src_simulations/MRF_sim_EPG.m'
 )
 SUBMODULE_DIR = Path('vendor/openmrf-core-matlab')
-OUTPUT_DIR = Path('matlab/generated')
+OUTPUT_DIR = Path('matlab_code/generated')
 MANIFEST_NAME = 'manifest.json'
 
 
@@ -206,12 +206,13 @@ def write_manifest(manifest: dict, output_dir: Path) -> Path:
 
 
 def main(project_root: Path | None = None) -> None:
-    """Extract EPG operators and write to matlab/generated/."""
+    """Extract EPG operators and write to matlab_code/generated/."""
     from omrf_mlab_golden_forge import setup_logging
 
     setup_logging()
 
-    root = project_root or Path(__file__).resolve().parents[2]
+    # packages/omrf-mlab-golden-forge/src/omrf_mlab_golden_forge/ → repo root
+    root = project_root or Path(__file__).resolve().parents[4]
     source = root / VENDOR_SOURCE
 
     if not source.exists():

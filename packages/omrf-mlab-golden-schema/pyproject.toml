@@ -1,0 +1,13 @@
+[project]
+name = "omrf-mlab-golden-schema"
+version = "1.0.0"
+description = "JSON schema contract for omrf-mlab-golden golden data"
+authors = [
+    { name = "stebix", email = "jannik.stebani@physik.uni-wuerzburg.de" },
+]
+requires-python = ">=3.12"
+dependencies = ["pydantic>=2.0"]
+
+[build-system]
+requires = ["uv_build>=0.10.6,<0.11.0"]
+build-backend = "uv_build"

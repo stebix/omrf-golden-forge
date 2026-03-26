@@ -2,6 +2,9 @@ function meta = collect_metadata(operator_name, generated_dir)
 % COLLECT_METADATA  Gather provenance metadata for golden data.
 %   meta = collect_metadata(operator_name, generated_dir)
 
+% Schema version (contract with Python consumers)
+meta.schema_version = '1.0';
+
 % Git commit hash
 [status, commit] = system('git rev-parse HEAD');
 if status == 0
