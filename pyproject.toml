@@ -3,6 +3,10 @@ name = "omrf-mlab-golden-workspace"
 version = "0.0.0"
 description = "uv workspace root for omrf-mlab-golden packages"
 requires-python = ">=3.12"
+dependencies = [
+    "omrf-mlab-golden-forge",
+    "omrf-mlab-golden-schema",
+]
 
 [dependency-groups]
 dev = ["ruff", "pyright", "pytest"]
